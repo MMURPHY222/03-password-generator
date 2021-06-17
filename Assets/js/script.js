@@ -15,24 +15,36 @@ function writePassword() {
   var passwordChar = "";
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+}
 
-  alert("Please answer the next few questions to help us make a password for you");
+function generatePassword() {
 
-  var lowerConfirm = confirm("Do you want lower case letters in your password?");
-  lowerConfirm;
-
-  var upperConfirm = confirm("Do you want upper case letters in your password?");
-  upperConfirm;
-
-  var digitConfirm = confirm("Do you want numbers in your password?");
-  digitConfirm;
-
-  var specialConfirm = confirm("Do you want special characters in your password?");
-  specialConfirm;
-
+  // gives user a prompt for length of password and logs it as a string
   var lengthPrompt = prompt("How many characters do you want in your password? \r\nPlease enter a value between 8 and 128");
-  lengthPrompt;
 
+  // takes the string variable and changes it to an integer
+  var length = parseInt(lengthPrompt);
+
+  if (length < 8 || length > 128) {
+    alert("Please choose a number between 8 and 128");
+    generatePassword();
+  } else {
+    alert("Please choose a number between 8 and 128");
+    generatePassword();
+  }
+
+  // gives user yes or no for lower case letters and logs it as a boolean
+  var lowerConfirm = confirm("Do you want lower case letters in your password?");
+  
+  // gives user yes or no for upper case letters and logs it as a boolean
+  var upperConfirm = confirm("Do you want upper case letters in your password?");
+  
+  // gives user yes or no for digits and logs it as a boolean
+  var digitConfirm = confirm("Do you want numbers in your password?");
+ 
+  // gives user yes or no for special characters and logs it as a boolean
+  var specialConfirm = confirm("Do you want special characters in your password?");
+  
 
   if (lowerConfirm) {
     passwordChar + lower;
@@ -52,12 +64,10 @@ function writePassword() {
     passwordChar + special;
   } 
 
-  // for (var i = 0, i < lengthPrompt )
+  for (i > 0; i < length; i++) {
 
- function generatePassword() {
+  }
  
-}
-
 }
 
 
