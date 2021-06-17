@@ -12,6 +12,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  var passwordChar = "";
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
@@ -32,34 +33,26 @@ function writePassword() {
   var lengthPrompt = prompt("How many characters do you want in your password? \r\nPlease enter a value between 8 and 128");
   lengthPrompt;
 
-  if (lowerConfirm) {
-    var randLower = lower[Math.floor(Math.random() * lower.length)];
-  } else {
 
-  }
+  if (lowerConfirm) {
+    passwordChar + lower;
+  } 
 
 
   if (upperConfirm) {
-
-  } else {
-    
+    passwordChar + upper;
   }
-
 
   if (digitConfirm) {
-
-  } else {
-    
-  }
+    passwordChar + digit;
+  } 
 
 
   if (specialConfirm) {
+    passwordChar + special;
+  } 
 
-  } else {
-    
-  }
-
-
+  // for (var i = 0, i < lengthPrompt )
 
  function generatePassword() {
  
