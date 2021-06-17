@@ -1,21 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
-  var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-",".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`","{", "|", "}", "~"];
-  var digit = ["0","1","2","3","4","5","6","7","8","9"];
-  var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordChar = "";
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-}
+  var lower = "abcdefghijklmnopqrstuvwxyz"
+  var special = "!#$%&()*+,-./:;<=>?@[]^{|}~';"
+  var digit = "0123456789"
+  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var options = "";
+  var finishedPassword = "";
+  var length = 0;
+  var check = [];
 
 function generatePassword() {
 
@@ -23,13 +16,13 @@ function generatePassword() {
   var lengthPrompt = prompt("How many characters do you want in your password? \r\nPlease enter a value between 8 and 128");
 
   // takes the string variable and changes it to an integer
-  var length = parseInt(lengthPrompt);
+  length = parseInt(lengthPrompt);
 
   if (length < 8 || length > 128) {
     alert("Please choose a number between 8 and 128");
     generatePassword();
-  } else {
-    alert("Please choose a number between 8 and 128");
+  } else if (isNaN(length)){
+    alert("Please choose a NUMBER between 8 and 128");
     generatePassword();
   }
 
@@ -47,32 +40,71 @@ function generatePassword() {
   
 
   if (lowerConfirm) {
-    passwordChar + lower;
-  } 
-
-
+    options += lower;
+    console.log("Should add lower", options);
+    check.push(lower);
+  };
+  
   if (upperConfirm) {
-    passwordChar + upper;
-  }
-
+    options += upper;
+    console.log("Should add upper", options);
+    check.push(upper);
+  };
+  
   if (digitConfirm) {
-    passwordChar + digit;
-  } 
-
-
+    options += digit;
+    console.log("Should add digits", options);
+    check.push(digit);
+  };
+  
   if (specialConfirm) {
-    passwordChar + special;
-  } 
+    options += special;
+    console.log("Should add special", options);
+    check.push(special);
+  };
 
-  for (i > 0; i < length; i++) {
+  console.log("These are my options" + options);
+  
+}
 
-  }
- 
+function forLoop () {
+  console.log(length);
+  for (i = 0; i < length; i++) {
+    console.log("Does this work");
+    finishedPassword = finishedPassword.concat(options[Math.floor(Math.random()*options.length)]);
+   };
+}
+
+// function checkPassword() {
+//   for()
+// 3 for loops - loop over check array, for each index of check array look @ each character in the final password
+// until you find something that is in the list - then return false out of check password function and in side write password which is where ill call check password --> check if true, if false then run write password again
+
+// }
+
+
+
+
+// Write password to the #password input
+function writePassword() {
+  var password = finishedPassword;
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 }
 
 
+
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", function () {
+
+  generatePassword();
+  forLoop();
+  writePassword();
+
+});
+
+
 
 
 
