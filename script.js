@@ -46,7 +46,8 @@ function generatePassword() {
   // gives user yes or no for special characters and logs it as a boolean
   var specialConfirm = confirm("Do you want special characters in your password?");
 
-
+  // checks prompts for true or accept conditions by user and adds the string of characters of their choosing
+  // this big string is what the password is randomly generated from 
   if (lowerConfirm) {
     options += lower;
     check.push(lower);
@@ -76,13 +77,6 @@ function forLoop () {
     finishedPassword = finishedPassword.concat(options[Math.floor(Math.random()*options.length)]);
    };
 }
-
-// function checkPassword() {
-//   for()
-// 3 for loops - loop over check array, for each index of check array look @ each character in the final password
-// until you find something that is in the list - then return false out of check password function and in side write password which is where ill call check password --> check if true, if false then run write password again
-
-// }
 
 
 // Write password to the #password input and runs clear password 
