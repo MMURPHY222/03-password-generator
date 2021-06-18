@@ -40,8 +40,3 @@ The third function is that of writePassword() sets a variable password equal to 
 
 There is also an EventListener which on click of the generate button which runs generate, forLoop, and writePassword simultaneously, and clearPassword() along with it. The clear password function simply resets the finishedPassword variable to zero to allow for a new password to appear on an empty screen, not be added to the previous password.
 
-
-## Contributing
-
-
-## License
