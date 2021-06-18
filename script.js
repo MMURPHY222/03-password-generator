@@ -1,11 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
 // assigned needed variables, string of options for each of future confirms and blank variables to add to later
 var lower = "abcdefghijklmnopqrstuvwxyz"
 var special = "!#$%&()*+,-./:;<=>?@[]^{|}~';"
-var digit = "0123456789"
+var digit = "01234567890123456789"
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var options = "";
 var finishedPassword = "";
@@ -50,37 +49,30 @@ function generatePassword() {
 
   if (lowerConfirm) {
     options += lower;
-    console.log("Should add lower", options);
     check.push(lower);
   };
   
   if (upperConfirm) {
     options += upper;
-    console.log("Should add upper", options);
     check.push(upper);
   };
   
   if (digitConfirm) {
     options += digit;
-    console.log("Should add digits", options);
     check.push(digit);
   };
   
   if (specialConfirm) {
     options += special;
-    console.log("Should add special", options);
     check.push(special);
   };
 
-  console.log("These are my options" + options);
   
 }
 
 //Uses the string set above (contains all things confirmed for password) and randomly chooses the password within it
 function forLoop () {
-  console.log(length);
   for (i = 0; i < length; i++) {
-    console.log("Does this work");
     finishedPassword = finishedPassword.concat(options[Math.floor(Math.random()*options.length)]);
    };
 }
